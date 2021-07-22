@@ -23,7 +23,7 @@
     <br>
     <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $peliculaEspecifica['usuario_id']): ?>
         <a href="editar-entrada.php?id=<?=$peliculaEspecifica['id']?>" class="boton">Editar pelicula</a>
-        <a href="borrar-entrada.php?id=<?=$peliculaEspecifica['id']?>" class="boton">Borrar pelicula</a>
+        <a href="acciones/borrar-entrada.php?id=<?=$peliculaEspecifica['id']?>" class="boton">Borrar pelicula</a>
     <?php endif; ?>
 </div>
 
