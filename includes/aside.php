@@ -20,18 +20,18 @@
             <a href="crear-entradas.php" class="boton">Publicar pelicula</a>
             <a href="crear-categoria.php" class="boton">Crear categoria</a>
             <a href="mis-datos.php" class="boton">Mis datos</a>
-            <a href="logout.php" class="boton">Cerrar sesion</a>
+            <a href="acciones/logout.php" class="boton">Cerrar sesion</a>
         </div>
     <?php endif; ?>
     <?php if(!isset($_SESSION['usuario'])): ?>
     <div id="login" class="bloque">
-        <h3>Identificate</h3>
+        <h3>Identificate (Solo para administradores)</h3>
         <?php if(isset($_SESSION['error-login'])): ?>
             <div class="alerta alerta_error">
                 <?= $_SESSION['error-login']; ?>
             </div>
         <?php endif; ?>
-        <form action="login.php" method="POST">
+        <form action="acciones/login.php" method="POST">
             <label for="email">Email</label>
             <input type="email" name="email">
             <label for="password">Contraseña</label>
@@ -39,7 +39,7 @@
             <input type="submit" value="Entrar">
         </form>
     </div>
-    <div id="register" class="bloque">
+    <div id="register" class="bloque" style="display:none">
         <?php if(isset($_SESSION['errores'])): ?>
             <?php  ?>
         <?php endif; ?>
@@ -57,7 +57,7 @@
         <?php endif ?>
         <!-- Mostrar errores -->
 
-        <form action="registro.php" method="POST">
+        <form action="acciones/registro.php" method="POST">
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre">
             <?php echo isset($_SESSION['errores']) ? mostrarError($_SESSION['errores'], 'nombre'): ''; ?>

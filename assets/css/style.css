@@ -48,6 +48,11 @@ body{
     text-decoration: none;
 }
 
+p {
+    font-size: 18px;
+    font-family: 'Raleway';
+}
+
 .alerta {
     padding: 5px;
     font-size: 14px;
