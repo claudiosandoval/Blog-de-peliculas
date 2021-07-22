@@ -7,7 +7,7 @@
     </div>
 
     <?php
-        $peliculas = conseguirPeliculas($db, true);
+        $peliculas = conseguirPeliculas($db);
         if(!empty($peliculas)):
             while($pelicula = mysqli_fetch_assoc($peliculas)):
     ?>
@@ -24,9 +24,6 @@
             endwhile;
         endif;
     ?>
-    <div id="ver-todas">
-        <a href="entradas.php">Ver todas las peliculas</a>
-    </div>
 </div>
 
 <?php require_once 'includes/footer.php'; ?>

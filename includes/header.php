@@ -1,5 +1,7 @@
 <!-- HEAD -->
-
+<?php require_once 'conexion.php'; ?>
+<?php require_once 'includes/helpers.php'; ?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,23 +24,24 @@
         </a><span style="color:white; background-color:black; font-family: 'Space Mono', monospace; font-weight:normal; font-style:italic;">Tu espacio, tus peliculas.</span>
     </div>
     <!-- MENU  -->
+
     <nav id="menu">
         <ul>
             <li>
                 <a href="index.php">Inicio</a>
             </li>
+            <?php 
+                $categorias = conseguirCategorias($db);
+                if(!empty($categorias)):
+                    foreach($categorias as $categoria): 
+            ?>
             <li>
-                <a href="index.php">Categoria 1</a>
+                <a href="categoria.php?id=<?=$categoria['id']?>"><?=$categoria['nombre']?></a>
             </li>
-            <li>
-                <a href="index.php">Categoria 2</a>
-            </li>
-            <li>
-                <a href="index.php">Categoria 3</a>
-            </li>
-            <li>
-                <a href="index.php">Categoria 4</a>
-            </li>
+            <?php 
+                    endforeach; 
+                endif;
+            ?>
             <li>
                 <a href="index.php">Sombre mi</a>
             </li>
@@ -51,4 +54,4 @@
     <div class="clearfix"></div>
 </header>
 
-<div id="contenedor">
+<div id="contenedor">   
