@@ -15,7 +15,7 @@
     <article class="pelicula">
         <a href="entrada.php?id=<?=$pelicula['id']?>">
             <br>
-            <img src="images/<?=$pelicula['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
+            <img src="assets/img/<?=$pelicula['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
             <h2><?= $pelicula['titulo'] ?></h2>
             <span class="fecha"><?= $pelicula['categoria'].' | '.$pelicula['fecha'] ?></span>
         </a>
@@ -32,5 +32,6 @@
 </div>
 
 <?php require_once 'includes/footer.php'; ?>
+<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
 </body>
 </html>

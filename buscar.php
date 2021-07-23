@@ -24,7 +24,7 @@
     <article class="pelicula">
         <a href="entrada.php?id=<?=$buscarPeliculas['id']?>">
             <br>
-            <img src="images/<?=$buscarPeliculas['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
+            <img src="assets/img/<?=$buscarPeliculas['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
             <h2><?= $buscarPeliculas['titulo'] ?></h2>
             <span class="fecha"><?= $buscarPeliculas['categoria'].' | '.$buscarPeliculas['fecha'] ?></span>
         </a>
