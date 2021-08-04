@@ -25,7 +25,7 @@
     <?php endif; ?>
     <?php if(!isset($_SESSION['usuario'])): ?>
     <div id="login" class="bloque">
-        <h3>Identificate (Solo para administradores)</h3>
+        <h3>Identifícate (Solo para administradores)</h3>
         <?php if(isset($_SESSION['error-login'])): ?>
             <div class="alerta alerta_error">
                 <?= $_SESSION['error-login']; ?>
