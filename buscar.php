@@ -16,7 +16,7 @@
         //var_dump($peliculas);
         $buscarPelicula = conseguirPeliculas($db, null, null, $_POST['busqueda']);
         //var_dump($buscarPelicula);
-        //die();
+        //die();  
         if(!empty($buscarPelicula) && mysqli_num_rows($buscarPelicula) >= 1):
             while($buscarPeliculas = mysqli_fetch_assoc($buscarPelicula)):
     ?>
@@ -24,7 +24,7 @@
     <article class="pelicula">
         <a href="entrada.php?id=<?=$buscarPeliculas['id']?>">
             <br>
-            <img src="assets/img/<?=$buscarPeliculas['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
+            <img src="uploads/images/<?=$buscarPeliculas['imagen']?>" alt="imagen pelicula" width="184" height="273">
             <h2><?= $buscarPeliculas['titulo'] ?></h2>
             <span class="fecha"><?= $buscarPeliculas['categoria'].' | '.$buscarPeliculas['fecha'] ?></span>
         </a>

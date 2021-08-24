@@ -14,7 +14,7 @@
     </div>
     <p style="color:gray">Post by <?=$peliculaEspecifica['usuario']?></p>
     <br>
-    <img src="assets/img/<?=$peliculaEspecifica['titulo']?>.jpg" alt="imagen pelicula" width="184" height="273">
+    <img src="uploads/images/<?=$peliculaEspecifica['imagen']?>" alt="imagen pelicula" width="184" height="273">
     <a href="categoria.php?id=<?=$peliculaEspecifica['categoria_id']?>">
         <h2>
             <?=$peliculaEspecifica['categoria']?>
@@ -23,7 +23,8 @@
     </a>
     <p><?=$peliculaEspecifica['descripcion']?></p> 
     <h2>Trailer</h2>
-    <video id="my-video" class="video-js" controls preload="auto" width="640" height="480" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+    <!-- Video JS -->
+    <!-- <video id="my-video" class="video-js" controls preload="auto" width="640" height="480" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
         <source src="assets/videos/<?=$peliculaEspecifica['titulo']?>.mp4" type="video/mp4"/>
         <source src="MY_VIDEO.webm" type="video/webm"/>
         <p class="vjs-no-js">
@@ -31,8 +32,8 @@
         web browser that
         <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
         </p>
-    </video>
-    <!-- <iframe src="https://player.vimeo.com/video/578605439" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe> -->
+    </video> -->
+    <iframe src="https://player.vimeo.com/video/<?=$peliculaEspecifica['video']?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     <?php if(isset($_SESSION['usuario']) && $_SESSION['usuario']['id'] == $peliculaEspecifica['usuario_id']): ?>
         <a href="editar-entrada.php?id=<?=$peliculaEspecifica['id']?>" class="boton">Editar pelicula</a>
         <a href="acciones/borrar-entrada.php?id=<?=$peliculaEspecifica['id']?>" class="boton">Borrar pelicula</a>

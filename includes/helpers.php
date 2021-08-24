@@ -77,7 +77,7 @@ function conseguirPelicula($conexion, $id) {
 };
 
 
-function conseguirPeliculas($conexion, $limit = null, $categoria = null, $busqueda = null) { //Conseguir todas las entradas (peliculas) segun su categoria, de esta manera estamos parametrizando la funcion y reutilizandola para no tener codigo redundante
+function conseguirUltimasPeliculas($conexion, $limit = null, $categoria = null, $busqueda = null) { //Conseguir todas las entradas (peliculas) segun su categoria, de esta manera estamos parametrizando la funcion y reutilizandola para no tener codigo redundante
     $sql = "SELECT p.*, c.nombre as 'categoria' FROM peliculas p
             INNER JOIN categorias c ON c.id = p.categoria_id 
             ";  
@@ -91,6 +91,40 @@ function conseguirPeliculas($conexion, $limit = null, $categoria = null, $busque
     }
 
     $sql .= " ORDER BY p.id DESC ";
+
+    if($limit) {
+        $sql .= "LIMIT 4";
+    } 
+
+    //echo $sql; 
+    //die();
+
+    $peliculas = mysqli_query($conexion, $sql);
+
+    $resultado = array();
+
+    if($peliculas && mysqli_num_rows($peliculas) >= 1) {
+        $resultado = $peliculas;
+    }
+
+    return $resultado;
+
+}
+
+function conseguirPeliculas($conexion, $limit = null, $categoria = null, $busqueda = null) { //Conseguir todas las entradas (peliculas) segun su categoria, de esta manera estamos parametrizando la funcion y reutilizandola para no tener codigo redundante
+    $sql = "SELECT p.*, c.nombre as 'categoria' FROM peliculas p
+            INNER JOIN categorias c ON c.id = p.categoria_id 
+            ";  
+
+    if(!empty($categoria)){ //si categoria no esta vacio y viene con un numero
+        $sql .= "WHERE p.categoria_id = $categoria";
+    }
+
+    if(!empty($busqueda)){  
+        $sql .= "WHERE p.titulo LIKE '%$busqueda%'";
+    }
+
+    $sql .= " ORDER BY p.fecha ASC ";
 
     if($limit) {
         $sql .= "LIMIT 4";

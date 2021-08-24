@@ -12,11 +12,11 @@
     <div class="cuadro">
         <h1>Editar Peliculas</h1>
     </div>
-    <form action="acciones/guardar-entrada.php?editar=<?=$peliculaEspecifica['id']?>" method="POST">
+    <form action="acciones/guardar-entrada.php?editar=<?=$peliculaEspecifica['id']?>" method="POST" enctype="multipart/form-data">
         <p>Pagina de edicion para <?=$peliculaEspecifica['titulo']?></p>
         <br>
         <label for="titulo">Titulo:</label>
-        <input type="text" name="titulo" value="<?=$peliculaEspecifica['titulo']?> ">
+        <input type="text" name="titulo" value="<?=$peliculaEspecifica['titulo']?>">
         <?php echo isset($_SESSION['errores_entrada']) ? mostrarError($_SESSION['errores_entrada'], 'titulo'): ''; ?>
 
         <label for="nombre">Descripción: </label>
@@ -39,7 +39,13 @@
             ?>
         </select>
         <?php echo isset($_SESSION['errores_entrada']) ? mostrarError($_SESSION['errores_entrada'], 'categoria'): ''; ?>
-
+        <label for="imagen">Imagen:</label>
+        <img src="uploads/images/<?=$peliculaEspecifica['imagen']?>" alt="imagen pelicula" width="100" height="150" style="display:block; margin:10px 0 10px 0">
+        <input type="file" name="imagen">
+        <label for="trailer">Trailer: </label>
+        <input type="text" name="trailer" value="<?=$peliculaEspecifica['video']?>">
+        <label for="fecha_estreno">Fecha de estreno: </label>
+        <input type="date" name="fecha_estreno" value="<?=$peliculaEspecifica['fecha']?>">
         <input type="submit" value="Guardar">
     </form>
     <?=borrarErrores()?>

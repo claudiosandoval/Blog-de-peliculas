@@ -7,7 +7,7 @@
     <div class="cuadro">
         <h1>Agregar Peliculas</h1>
     </div>
-    <form action="acciones/guardar-entrada.php" method="POST">
+    <form action="acciones/guardar-entrada.php" method="POST" enctype="multipart/form-data">
         <p>Agrega nuevas peliculas a la filmoteca</p>
         <br>
         <label for="titulo">Titulo: </label>
@@ -34,7 +34,10 @@
             ?>
         </select>
         <?php echo isset($_SESSION['errores_entrada']) ? mostrarError($_SESSION['errores_entrada'], 'categoria'): ''; ?>
-
+        <label for="imagen">Imagen:</label>
+        <input type="file" name="imagen">
+        <label for="fecha_estreno">Fecha de estreno: </label>
+        <input type="date" name="fecha_estreno">
         <input type="submit" value="Guardar">
     </form>
     <?=borrarErrores()?>

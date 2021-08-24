@@ -41,7 +41,8 @@
     </div>
     <div id="register" class="bloque" style="display:none">
         <?php if(isset($_SESSION['errores'])): ?>
-            <?php  ?>
+            <!-- este script de php sirve para ver que errores nos devuelve con var_dump -->
+            <!-- <?php var_dump($_SESSION['errores']) ?> -->
         <?php endif; ?>
         <h3>Registrate</h3>
 
