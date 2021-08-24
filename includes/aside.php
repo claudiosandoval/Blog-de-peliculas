@@ -2,12 +2,6 @@
 
     <div id="buscador" class="bloque">
         <h3>Buscar</h3>
-
-        <?php if(isset($_SESSION['error-login'])): ?>
-            <div class="alerta alerta_error">
-                <?= $_SESSION['error-login']; ?>
-            </div>
-        <?php endif; ?>
         <form action="buscar.php" method="POST">
             <input type="text" name="busqueda">
             <input type="submit" value="Buscar">
