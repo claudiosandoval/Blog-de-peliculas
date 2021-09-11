@@ -21,8 +21,8 @@
 
     <article class="pelicula">
         <br>
-        <img src="uploads/images/<?=$pelicula['imagen']?>" alt="imagen pelicula" width="184" height="273">
         <a href="entrada.php?id=<?=$pelicula['id']?>">
+        <img src="uploads/images/<?=$pelicula['imagen']?>" alt="imagen pelicula" width="184" height="273">
             <h2><?= $pelicula['titulo'] ?></h2>
             <span class="fecha"><?= $pelicula['categoria'].' | '.$pelicula['fecha'] ?></span>
         </a>
