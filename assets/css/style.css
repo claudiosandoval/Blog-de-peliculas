@@ -100,6 +100,7 @@ p {
 
 #menu {
     width: 100%;
+    max-width: 1274px;
     height: 40px;
     background: linear-gradient(to bottom, #f9f9f9 0px, #e9e9e9 100%);
     clear: both;
@@ -341,6 +342,31 @@ aside a {
 @media (max-width: 1498px) {
     #menu {
         height: 80px;
+    }
+}
+/* Quiebres en dispositivos moviles */
+
+@media (max-width: 1200px) {
+    #cabecera {
+        min-width: 1120px;
+    }
+    
+    #menu {
+        width: 95%;
+        margin: 0 auto;
+        margin-left: 15px;
+    }
+    
+    #contenedor, #pie {
+        min-width: 1115px;
+    }
+
+    #logo {
+        margin-left: 20px;
+    }
+
+    #sidebar {
+        margin-right: 20px;
     }
 }
 
